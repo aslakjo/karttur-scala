@@ -11,7 +11,7 @@ At the sbt prompt, type:
 update
 
 Then:
-jetty-run
+~jetty
 
 Point your browser to:
 http://localhost:8080/
