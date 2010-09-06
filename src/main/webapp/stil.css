@@ -3,7 +3,37 @@
   color: red;
 }
 
+body a
+{
+    text-decoration: none;
+    color: #61CDF5;
+    font-weight: bold;
+}
+
 .menu li
 {
-    display: inline;
+    display: inline-block;
+    height: 6em;
+    width: 5em;
+    background: #333;
+    color: #ccc;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1,5em;
+    text-align: center;
+    vertical-align: bottom;
+    
+}
+
+
+
+div[placeId]
+{
+    display:inline-block;
+    width: 5em;
+    border:1px black solid;
+    padding: 2px;
+    margin: 5px;
+
+    text-align: center;
 }
