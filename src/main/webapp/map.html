@@ -1,0 +1,99 @@
+<lift:surround with="default" at="content" xmlns:place="http://www.w3.org/2001/XMLSchema">
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js" ></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js" ></script>
+        <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+        <script type="text/javascript" src="/script/map.js"></script>
+
+        <link rel="http://jqueryui.com/themes/base/jquery.ui.all.css" type="text/css"/>
+
+        <style type="text/css">
+            #dialog #lat, #dialog #lon
+            {
+                width: 45%;
+                display: inline-block;
+            }
+
+            #dialog #posisjon
+            {
+                display: block;
+            }
+
+            #dialog
+            {
+                background: white;
+            }
+
+
+
+        </style>
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+            var map = SetupMap()
+
+            $("#dialog").dialog({
+                autoOpen: false,
+                height: 300,
+                width: 350
+            })
+
+            var click = ClickHandler(map, function(lat, lon){
+
+                $("#dialog #lat").val(lat)
+                $("#dialog #lon").val(lon)
+            
+                $("#dialog").dialog('open');
+
+                $("#lagre").click(function(){
+                    data = {lat: $("#lat").val(), lon: $("#lon").val(), name: $("#name").val(), comments: $("#comment").val()}
+                    $.post("/api/place/new", data, function(a, b, c){
+                        console.debug(a,b,c)
+                    })
+                });
+            });
+            map.addControl(click);
+            click.activate();
+
+            $("div[placeId]").each(function(){
+                placeId = $(this).attr("placeId");
+                console.debug(placeId)
+                DrawPoint(map, placeId)
+            });
+        });
+        </script>
+    </head>
+
+    <lift:MapDisplay.place>
+        <place:list>
+            <places:list>
+                <div p:placeId="default">
+                    <p:name/>
+                    <p:id/>
+                </div>
+            </places:list>
+        </place:list>
+    </lift:MapDisplay.place>
+    <div id="map" style="height: 800px; width: 1000px;">
+
+    </div>
+
+    <div id="dialog" title="Point">
+        <form>
+        <fieldset title="Sted">
+            <label for="name">Navn</label>
+            <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+
+            <label for="comment">Kommentar</label>
+            <input type="text" name="kommentar" id="comment" class="text ui-widget-content ui-corner-all" />
+            
+            <label id="posisjon" >Posisjon</label>
+            <input type="text" id="lat" name="lat" readonly="" class="text ui-widget-content ui-corner-all" />
+            <input type="text" id="lon" name="lon" readonly="" class="text ui-widget-content ui-corner-all" />
+
+            <input type="button" id="lagre" value="Lagre"/>
+        </fieldset>
+        </form>
+    </div>
+
+</lift:surround>

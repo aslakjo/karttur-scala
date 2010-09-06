@@ -1,0 +1,9 @@
+.edit_error_class {
+  display: block;
+  color: red;
+}
+
+.menu li
+{
+    display: inline;
+}
