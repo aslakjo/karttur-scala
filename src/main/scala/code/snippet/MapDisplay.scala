@@ -15,12 +15,13 @@ class MapDisplay {
   def place(in:NodeSeq):NodeSeq={
     val places = Place.findAll
 
-    bind("place", in, "list" ->
-      places.flatMap( p => bind("p", chooseTemplate("places", "list", in),
-        "name" -> p.name,
-        "id" -> p.id,
-        AttrBindParam("placeId", p.id.toString, "placeId")
-      ))
+    bind("place", in,
+        "list" -> places.flatMap( p => bind("p", chooseTemplate("places", "list", in),
+          "name" -> p.name,
+          "id" -> p.id,
+          AttrBindParam("placeId", p.id.toString, "placeId")
+        )
+      )
     )
   }
 

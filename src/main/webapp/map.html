@@ -47,9 +47,7 @@
 
                 $("#lagre").click(function(){
                     data = {lat: $("#lat").val(), lon: $("#lon").val(), name: $("#name").val(), comments: $("#comment").val()}
-                    $.post("/api/place/new", data, function(a, b, c){
-                        console.debug(a,b,c)
-                    })
+                    $.post("/api/place/new", data)
                 });
             });
             map.addControl(click);
@@ -57,7 +55,6 @@
 
             $("div[placeId]").each(function(){
                 placeId = $(this).attr("placeId");
-                console.debug(placeId)
                 DrawPoint(map, placeId)
             });
         });
@@ -78,21 +75,17 @@
     </div>
 
     <div id="dialog" title="Point">
-        <form>
+        <lift:PlaceSnippet.newPlace form="post">
         <fieldset title="Sted">
-            <label for="name">Navn</label>
-            <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
-
-            <label for="comment">Kommentar</label>
-            <input type="text" name="kommentar" id="comment" class="text ui-widget-content ui-corner-all" />
+            <f:name />
+            <f:comment />
             
-            <label id="posisjon" >Posisjon</label>
-            <input type="text" id="lat" name="lat" readonly="" class="text ui-widget-content ui-corner-all" />
-            <input type="text" id="lon" name="lon" readonly="" class="text ui-widget-content ui-corner-all" />
+            <f:lat id="lat"/>
+            <f:lon id="lon"/>
 
-            <input type="button" id="lagre" value="Lagre"/>
+            <f:save />
         </fieldset>
-        </form>
+        </lift:PlaceSnippet.newPlace>
     </div>
 
 </lift:surround>
