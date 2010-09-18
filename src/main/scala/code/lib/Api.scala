@@ -20,8 +20,10 @@ object Api {
     def find(id: Box[String]) = {
       Log.info(id)
       val place = Place.find(By(Place.id, (S.param("id") open_!).toInt)) open_!
+      val json = JsObj( "title" -> place.name.toString ,"lat" -> place.lat.toString ,"lon" -> place.lon.toString )
+
       JsonResponse(
-        JsObj("title" -> place.name.toString, "lat" -> place.lat.toString, "lon" -> place.lon.toString)
+        json
       )
     }
 

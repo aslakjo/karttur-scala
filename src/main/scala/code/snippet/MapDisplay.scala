@@ -18,10 +18,13 @@ class MapDisplay {
 
     bind("place", in,
         "list" -> places.flatMap( p => bind("p", chooseTemplate("places", "list", in),
-          "name" -> SHtml.a(<span>{p.name}</span>, SetHtml("place",
-            <div>{p.name}</div>
-            <div>{p.comments}</div>
-            <div>{p.lat}  {p.lon}</div>)),
+          "name" -> SHtml.a(<span>{p.name}</span>, {
+            Run("centerAt(" + p.lat + ", " + p.lon + ")");
+            /*SetHtml("place",
+              <div>{p.name}</div>
+              <div>{p.comments}</div>
+              <div>{p.lat}  {p.lon}</div>)*/
+          }),
             AttrBindParam("placeId", p.id.toString, "placeId")
           )
       )

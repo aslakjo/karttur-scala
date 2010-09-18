@@ -31,6 +31,10 @@ function DrawPoint(map, pointId) {
     })
 }
 
+function centerAt(lat, lon){
+    map.setCenter(new OpenLayers.LonLat(lat, lon))
+}
+
 function ClickHandler(map, fn){
     OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
         defaultHandlerOptions: {
