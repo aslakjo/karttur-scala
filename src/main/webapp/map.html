@@ -2,38 +2,11 @@
     <head>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js" ></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js" ></script>
-        <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
-        <script type="text/javascript" src="/script/map.js"></script>
 
         <link rel="http://jqueryui.com/themes/base/jquery.ui.all.css" type="text/css"/>
 
-        <style type="text/css">
-            #dialog #lat, #dialog #lon
-            {
-                width: 45%;
-                display: inline-block;
-            }
-
-            #dialog #posisjon
-            {
-                display: block;
-            }
-
-            #dialog
-            {
-                background: white;
-            }
-
-
-
-        </style>
-
         <script type="text/javascript">
-
-        var map;
         $(document).ready(function(){
-            map = SetupMap()
-
             $("#dialog").dialog({
                 autoOpen: false,
                 height: 300,
@@ -73,10 +46,9 @@
         </place:list>
     </lift:MapDisplay.place>
     <div id="place"/>
-    <div id="map" style="height: 800px; width: 1000px;">
 
-    </div>
-
+    <lift:Map.display/>
+    
     <div id="dialog" title="Point">
         <lift:PlaceSnippet.newPlace form="post">
         <fieldset title="Sted">

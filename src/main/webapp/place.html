@@ -1,0 +1,15 @@
+<lift:surround with="default" at="content" xmlns:place="http://www.w3.org/2001/XMLSchema">
+    <lift:PlaceSnippet.place >
+        <p:name/>
+        <p:comments/>
+        <p:lat/>
+        <p:lon/>
+        <script type="text/javascript">
+            $(document).ready(function(){
+               <p:load/>
+            });
+        </script>
+    </lift:PlaceSnippet.place>
+
+    <lift:Map.display/>
+</lift:surround>

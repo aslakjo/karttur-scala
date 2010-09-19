@@ -1,4 +1,8 @@
 
+var map;
+$(document).ready(function(){
+    map = SetupMap()
+})
 
 function SetupMap(){
     var map = new OpenLayers.Map( 'map' );
@@ -19,7 +23,7 @@ function SetupMap(){
 function DrawPoint(map, pointId) {
 
     $.post("/api/place?id=" + pointId, null, function(a, b, c){
-        var place = eval(a)
+        var place = eval("("+ a +")")
 
         var markers = new OpenLayers.Layer.Markers( "Markers_" + pointId );
         map.addLayer(markers);

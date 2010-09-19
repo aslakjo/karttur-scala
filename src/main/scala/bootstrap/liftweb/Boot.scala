@@ -24,13 +24,18 @@ class Boot {
     LiftRules.addToPackages("code")
 
     val entries = List(
-      Menu.i("Karttur") / "index" ,
-      Menu("Kart") / "map"
+      Menu.i("Kart") / "map" ,
+      Menu("Sted") / "place"
     ) 
     
     LiftRules.dispatch.prepend(Api.dispatch)
 
     LiftRules.setSiteMap(SiteMap(entries:_*))
+
+    LiftRules.rewrite.prepend(NamedPF("PlaceRewrite") {
+      case RewriteRequest(ParsePath("map" :: place :: Nil, _,_,_), GetRequest, _) =>
+        RewriteResponse("place" ::Nil, Map("place" -> place))
+    })
 
     LiftRules.early.append(_.setCharacterEncoding("UTF-8"))
 

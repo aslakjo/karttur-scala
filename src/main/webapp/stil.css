@@ -37,3 +37,19 @@ div[placeId]
 
     text-align: center;
 }
+
+#dialog #lat, #dialog #lon
+{
+    width: 45%;
+    display: inline-block;
+}
+
+#dialog #posisjon
+{
+    display: block;
+}
+
+#dialog
+{
+    background: white;
+}
