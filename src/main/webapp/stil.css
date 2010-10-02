@@ -95,3 +95,42 @@ div[placeId]
 {
     background: white;
 }
+
+.panel
+{
+    position: absolute;
+    z-index: 1000;
+
+    background: white;
+
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.topright
+{
+    right: 0;
+    top: 0;
+}
+
+.name
+{
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.comment
+{
+    padding: 3px 0 3px 0;
+}
+
+.position
+{
+    font-size: .9em;
+    color: #ccc
+}
+
+.position-part
+{
+    display: inline-block
+}

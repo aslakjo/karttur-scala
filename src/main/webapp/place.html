@@ -1,10 +1,14 @@
 <lift:surround with="default" at="content" xmlns:place="http://www.w3.org/2001/XMLSchema">
     <lift:PlaceSnippet.place >
-        <p:name/>
-        <p:comments/>
-        <p:lat/>
-        <p:lon/>
-        <p:link/>
+        <div class="place topright panel">
+            <div class="name"><p:name/></div>
+            <div class="comment"><p:comments/></div>
+            <div class="position">
+                <div class="position-part"><p:lat/></div>
+                <div class="position-part"><p:lon/></div>
+            </div>
+            <div class="link"><p:link/></div>
+        </div>
         <script type="text/javascript">
             $(document).ready(function(){
                <p:load/>
