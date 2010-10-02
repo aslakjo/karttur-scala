@@ -32,19 +32,30 @@
                 placeId = $(this).attr("placeId");
                 DrawPoint(map, placeId)
             });
+
+            $("#close").click(function(){
+                $(this).prev().slideToggle()
+                if($(this).text() == "-")
+                    $(this).text("+");
+                else
+                    $(this).text("-");
+            });
         });
         </script>
     </head>
 
-    <div class="places">
+    <div class="places panel top right">
         <lift:MapDisplay.place>
-            <place:list>
-                <places:list>
-                    <div p:placeId="default">
-                        <p:name/>
-                    </div>
-                </places:list>
-            </place:list>
+            <div>
+                <place:list>
+                    <places:list>
+                        <div p:placeId="default">
+                            <p:name/>
+                        </div>
+                    </places:list>
+                </place:list>
+            </div>
+            <div id="close">-</div>
         </lift:MapDisplay.place>
     </div>
     <div id="place"/>

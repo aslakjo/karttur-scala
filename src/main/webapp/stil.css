@@ -10,33 +10,43 @@ body a
     font-weight: bold;
 }
 
+.menu
+{
+    position:absolute;
+    right: 50px;
+    margin:0;
+    padding:0;
+    text-align: bottom;
+    height: 20px;
+    z-index : 1000;
+}
+
+.menu ul
+{
+    margin: 0;
+}
+
 .menu li
 {
     display: inline-block;
-    margin: 0px;
-    padding: 0px;
-    height: 50px;
     width: 5em;
     background: #333;
     color: #ccc;
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 1.1em;
     text-align: center;
+
+    padding: 20px 0 4px 0 ;
 }
 
-.menu
+#close
 {
-    position:absolute;
-    top:0px;
-    right: 100px;
-    margin:0;
-    padding:0;
-    text-align: top;
-}
-
-.places
-{
-    height: 10%
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    font-size: 1em;
+    float: right;
+    cursor: pointer;
 }
 
 #place
@@ -65,19 +75,14 @@ html, body {
 
 #map
 {
-    height: 90%;
+    height: 100%;
 }
 
 
 div[placeId]
 {
-    display:inline-block;
     width: 5em;
-    border:1px black solid;
-    padding: 2px;
     margin: 5px;
-
-    text-align: center;
 }
 
 #dialog #lat, #dialog #lon
@@ -107,10 +112,25 @@ div[placeId]
     padding: 15px;
 }
 
-.topright
+.top
 {
-    right: 0;
-    top: 0;
+
+    top: 44px;
+}
+
+.absolute-top
+{
+    top:0px;
+}
+
+.right
+{
+    right: 50px;
+}
+
+.left
+{
+    left: 0;
 }
 
 .name
@@ -133,4 +153,9 @@ div[placeId]
 .position-part
 {
     display: inline-block
+}
+
+.places
+{
+    width: 145px;
 }
