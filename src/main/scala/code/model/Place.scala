@@ -9,6 +9,8 @@ class Place extends LongKeyedMapper[Place] with IdPK {
   object lat extends MappedDouble(this)
   object lon extends MappedDouble(this)
   object comments extends MappedString(this, 512)
+
+  def url = "/map/" + id
 }
 
 object Place extends Place with LongKeyedMetaMapper[Place]{

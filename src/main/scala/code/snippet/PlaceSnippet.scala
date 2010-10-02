@@ -46,9 +46,9 @@ class PlaceSnippet
           "lat" -> place.lat,
           "lon" -> place.lon,
           "load" -> (Run("DrawPoint(map, \""+ place.id.toString +"\");") &
-                  Run("centerAt("+ place.lat +", "+ place.lon +");")).toJsCmd
-          )
-        
+                  Run("centerAt("+ place.lat +", "+ place.lon +");")).toJsCmd,
+          "link" -> <a href={place.url}>Link</a>
+        )
       }
     }
   }

@@ -13,18 +13,60 @@ body a
 .menu li
 {
     display: inline-block;
-    height: 6em;
+    margin: 0px;
+    padding: 0px;
+    height: 50px;
     width: 5em;
     background: #333;
     color: #ccc;
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 13px;
-    line-height: 1,5em;
     text-align: center;
-    vertical-align: bottom;
-    
 }
 
+.menu
+{
+    position:absolute;
+    top:0px;
+    right: 100px;
+    margin:0;
+    padding:0;
+    text-align: top;
+}
+
+.places
+{
+    height: 10%
+}
+
+#place
+{
+    position: absolute;
+    top: 2em;
+}
+
+.content
+{
+    height: 100%
+}
+
+.filler
+{
+    height: 100%;
+    width: 100%;
+
+}
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#map
+{
+    height: 90%;
+}
 
 
 div[placeId]

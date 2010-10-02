@@ -23,7 +23,13 @@ function SetupMap(){
 function DrawPoint(map, pointId) {
 
     $.post("/api/place?id=" + pointId, null, function(a, b, c){
-        var place = eval("("+ a +")")
+
+        var place
+         try{
+            place = eval( a )
+         }catch(e){
+            place = eval( "(" + a + ")")
+        }
 
         var markers = new OpenLayers.Layer.Markers( "Markers_" + pointId );
         map.addLayer(markers);
